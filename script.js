@@ -1,37 +1,15 @@
 let getStringNumbers = function(){
     let result = '';
     let numberIterations = '';
-    while(1){
+    
+    numberIterations = prompt('Введите число от 1 до 100');
+    if(numberIterations<0 || numberIterations>100){
+        alert('Введенное вами число не из диапазона!')
         numberIterations = prompt('Введите число от 1 до 100');
-        if(isNotANumber(numberIterations)){
-            alert('Нужно ввести число!');
-            continue;
-        }
-        if(isEmpty(numberIterations)){
-            alert('Нужно ввести число!');
-            continue;
-        }
-        if(numberIterations<0 || numberIterations>100){
-            alert('Введенное вами число не из диапазона!')
-            numberIterations = prompt('Введите число от 1 до 100');
-        }
-        else{
-            break;
-        }
     }
     console.log(numberIterations);
     for(let i=0; i<numberIterations; i++){
-        let number = '';
-        while(1){
-            number = prompt('Введите число от 1 до 100');
-            if(isNotANumber(number) || isEmpty(number)){
-                alert('Нужно ввести число!');
-                continue;
-            }
-            else{
-                break;
-            }
-        }
+        let number = prompt('Введите число от 1 до 100');
         if(number%2==0 && result === ''){
             result += number;
             console.log(number);
@@ -44,14 +22,7 @@ let getStringNumbers = function(){
     return result === ''?alert('пустая строка'):alert(result); 
 }
 
-let isNotANumber = function(num){
-    return isNaN(Number(num))?true:false;
-}
-let isEmpty = function(num){
-    return Boolean(num)?false:true;
-}
-
-getStringNumbers();
+/* getStringNumbers(); */
 
 ////////////////////////////
 
@@ -74,41 +45,24 @@ let sumAnswer = function(){
 
 /////////////////////////////
 
-let getQuarter = function(){
-    while(1){
-        let number = prompt('Введите число от 0 до 60');
-        if(Boolean(number) == false){
-            alert('Нужно ввести число!');
-            continue;
-        }
-        if(isNaN(Number(number))){
-            alert('Нужно ввести число!');
-            continue;
-        }
-        else if(number<0 || number>60){
-            alert('Введенное вами число не из диапазона!')
-            number = prompt('Введите число от 1 до 60');
-        }
-        else{
-            switch (true){
-                case number<=15:
-                    alert('Первая четверть');
-                    break;
-                case number<=30:
-                    alert('Вторая четверть');
-                    break;
-                case number<=45:
-                    alert('Третья четверть');
-                    break;
-                case number<=60:
-                    alert('Четвертая четверть');
-                    break;
-            }
+let getQuarter = function(){    
+    let number = prompt('Введите число от 0 до 60'); 
+    switch (true){
+        case number<=15:
+            alert('Первая четверть');
             break;
-        }
+        case number<=30:
+            alert('Вторая четверть');
+            break;
+        case number<=45:
+            alert('Третья четверть');
+            break;
+        case number<=60:
+            alert('Четвертая четверть');
+            break;
     }
 }
-/* getQuarter(); */
+getQuarter();
 /*
 1.Создать строку которая содержит только четный числа
 
